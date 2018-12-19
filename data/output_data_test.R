@@ -25,3 +25,27 @@ rt_sym <- data.frame(cbind(rt_sym_t_i, rt_sym_n_i), stringsAsFactors = FALSE)
 rt_sym_d <- data.frame(rt_sym[apply(rt_sym, 1, function(x){median(x) > 0}), ], stringsAsFactors = FALSE)[1:10000, ]
 setwd('/Users/stead/Documents/SourceTree/gitbook/R_visualization/data')
 write.table(rt_sym_d, file = 'LUAD_test.txt', row.names = TRUE, col.names = TRUE, sep = '\t')
+
+
+###output clinical data
+cancer <- 'LUAD'
+rt_cli <- read.table(file = paste("/Users/stead/Desktop/PD-L1_and_TMI_type/UCSC_GDC_data/", cancer, "/phenotype/TCGA-", cancer, ".GDC_phenotype.tsv", sep = ""),
+                     sep = "\t", header = TRUE, row.names = NULL, stringsAsFactors = FALSE, fill = TRUE, quote = "", na.strings = "NA")
+rt_sur <- read.table(file = paste("/Users/stead/Desktop/PD-L1_and_TMI_type/UCSC_GDC_data/", cancer, "/phenotype/TCGA-", cancer, ".survival.tsv", sep = ""),
+                     sep = "\t", header = TRUE, row.names = NULL, stringsAsFactors = FALSE)
+
+###get merged exp, cli and sur
+cancer_list <- GetExpSurCli(rt_sym_t_i, rt_cli, rt_sur)
+rt_T_m <- cancer_list[[1]]
+rt_cli_m <- cancer_list[[2]]
+rt_sur_m <- cancer_list[[3]]
+cancer_cli_sort <- CliSort(rt_cli_m, cancer)
+rt_cli_m <- cancer_cli_sort
+
+rt_sur_s <- rt_sur_m[, c('X_OS_IND', 'X_OS')]
+colnames(rt_sur_s) <- c('OS_Time', 'OS_Status')
+rt_cli_s <- rt_cli_m[, c('age_at_initial_pathologic_diagnosis', 'tumor_stage.diagnoses')]
+colnames(rt_cli_s) <- c('age', 'stage')
+rt_ecs <- cbind(t(rt_T_m[c(4478, 22753, 22434), ]), rt_sur_s, rt_cli_s)
+setwd('/Users/stead/Documents/SourceTree/gitbook/R_visualization/data')
+write.table(rt_ecs, file = 'LUAD_cli_exp.txt', row.names = TRUE, col.names = TRUE, sep = '\t')

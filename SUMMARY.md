@@ -14,14 +14,12 @@
 
 ### 3.线图(line plot)
 * [3.1 基本的线图](part3/basic.md)
-* [3.2 图形参数调整](part3/parameter.md)
 
 ### 4.箱型图(boxplot)
 * [4.1 基本的箱型图](part4/basic.md)
 * [4.2 图形参数调整](part4/parameter.md)
-* [4.3 多分组箱型图](part4/more group.md)
-* [4.4 分组分面展示](part4/facet.md)
-* [4.5 小提琴图](part4/violin.md)
+* [4.3 多分组箱型图](part4/more_group.md)
+* [4.4 小提琴图](part4/violin.md)
 
 ### 5.密度图(density plot)
 * [5.1 基本的密度图](part5/density plot.md)
