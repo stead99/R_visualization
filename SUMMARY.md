@@ -10,8 +10,7 @@
 ### 2.散点图(scatter plot)
 
 * [2.1 基本的散点图](part2/basic.md)
-* [2.2 图形参数调整](part2/parameter.md)
-* [2.3 3D散点图](part2/3D scatter.md)
+* [2.2 3D散点图](part2/3D_scatter.md)
 
 ### 3.线图(line plot)
 * [3.1 基本的线图](part3/basic.md)
@@ -20,7 +19,7 @@
 ### 4.箱型图(boxplot)
 * [4.1 基本的箱型图](part4/basic.md)
 * [4.2 图形参数调整](part4/parameter.md)
-* [4.3 多分组箱型图(part4/more group.md)
+* [4.3 多分组箱型图](part4/more group.md)
 * [4.4 分组分面展示](part4/facet.md)
 * [4.5 小提琴图](part4/violin.md)
 
