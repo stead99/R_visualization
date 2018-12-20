@@ -30,7 +30,7 @@ dim(rt_diff2)#798 6, 有798个差异基因
 ```
 >rt_diff2数据形式如下图所示
 
-![scatter plot](/images/part6/FC_P.png)
+![data_format](/images/part6/FC_P.png)
 
 ####利用heatmap.2做heatmap
 ```R

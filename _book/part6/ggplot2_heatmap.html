@@ -341,9 +341,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../part7/2D PCA.md">
+        <li class="chapter " data-level="7.1" data-path="../part7/2D_PCA.html">
             
-                <span>
+                <a href="../part7/2D_PCA.html">
             
                     
                     7.1 2D PCA
@@ -354,9 +354,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="../part7/3D PCA.md">
+        <li class="chapter " data-level="7.2" data-path="../part7/3D_PCA.html">
             
-                <span>
+                <a href="../part7/3D_PCA.html">
             
                     
                     7.2 3D PCA
@@ -374,25 +374,12 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="../part8/ROC plot.md">
+        <li class="chapter " data-level="8.1" data-path="../part8/basic.html">
             
-                <span>
+                <a href="../part8/basic.html">
             
                     
                     8.1 基本的ROC曲线
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="8.2" data-path="../part8/parameter.md">
-            
-                <span>
-            
-                    
-                    8.2 图形参数调整
             
                 </a>
             
@@ -407,25 +394,12 @@
         
         
     
-        <li class="chapter " data-level="9.1" data-path="../part9/KM plot.md">
+        <li class="chapter " data-level="9.1" data-path="../part9/basic.html">
             
-                <span>
+                <a href="../part9/basic.html">
             
                     
                     9.1 基本的生存分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="9.2" data-path="../part9/parameter.md">
-            
-                <span>
-            
-                    
-                    9.2 图形参数调整
             
                 </a>
             
@@ -469,16 +443,16 @@
 
     
         
-        <li class="header">11.GSEA分析</li>
+        <li class="header">11.circular plot</li>
         
         
     
-        <li class="chapter " data-level="11.1" data-path="../part11/introduce.md">
+        <li class="chapter " data-level="11.1" data-path="../part11/circular plot.md">
             
                 <span>
             
                     
-                    11.1 GSEA算法原理介绍
+                    11.1 基本的circular plot
             
                 </a>
             
@@ -486,45 +460,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11.2" data-path="../part11/GSEA.md">
+        <li class="chapter " data-level="11.2" data-path="../part11/parameter.md">
             
                 <span>
             
                     
-                    11.2 GSEA图形展示
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">12.circular plot</li>
-        
-        
-    
-        <li class="chapter " data-level="12.1" data-path="../part12/circular plot.md">
-            
-                <span>
-            
-                    
-                    12.1 基本的circular plot
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="12.2" data-path="../part12/parameter.md">
-            
-                <span>
-            
-                    
-                    12.2 图形参数调整
+                    11.2 图形参数调整
             
                 </a>
             
@@ -578,6 +519,78 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="ggplot2-heatmap">ggplot2 heatmap</h3>
+<blockquote>
+<p>&#x6570;&#x636E;&#x4F9D;&#x7136;&#x6765;&#x81EA;&#x4E8E;&#x4E0A;&#x4E00;&#x8282;&#x7684;&#x6570;&#x636E;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(<span class="hljs-string">&quot;reshape2&quot;</span>)
+<span class="hljs-keyword">library</span>(<span class="hljs-string">&quot;ggplot2&quot;</span>)
+
+<span class="hljs-comment">#&#x51C6;&#x5907;ggplt2&#x6240;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span>
+mat_ht_gg &lt;- melt(t(mat_ht_z))
+
+<span class="hljs-comment">#&#x4F5C;&#x56FE;</span>
+HT1 &lt;- ggplot(data = mat_ht_gg, aes(x = Var1, y = Var2)) + 
+       geom_tile(aes(fill = value))
+print(HT1)
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x6362;&#x4E00;&#x79CD;&#x989C;&#x8272;</span>
+HT2 &lt;- HT1 + scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>)
+print(HT2)
+</code></pre>
+<p><img src="../images/part6/heatmap6.svg" alt="scatter plot">
+<img src="../images/part6/heatmap7.svg" alt="scatter plot"></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x83B7;&#x5F97;&#x805A;&#x7C7B;&#x7684;&#x56FE;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x524D;&#x5BF9;&#x8F93;&#x5165;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x805A;&#x7C7B;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-comment">#do cluster</span>
+<span class="hljs-keyword">library</span>(ggplot2)
+<span class="hljs-keyword">library</span>(ggcorrplot)
+<span class="hljs-keyword">library</span>(ggdendro)
+
+<span class="hljs-comment">#col cluster</span>
+mat_dendro_col &lt;- as.dendrogram(hclust(d = dist(x = t(mat_ht_z))))
+mat_dendro_ord_col &lt;- order.dendrogram(mat_dendro_col)
+<span class="hljs-comment">#row cluster</span>
+mat_dendro_row &lt;- as.dendrogram(hclust(d = dist(x = mat_ht_z)))
+mat_dendro_ord_row &lt;- order.dendrogram(mat_dendro_row)
+
+<span class="hljs-comment">#Re-order heatmap columns to match dendrogram</span>
+mat_ht_gg_clu &lt;- mat_ht_z[mat_dendro_ord_row, mat_dendro_ord_col]
+mat_ht_clu &lt;- melt(t(mat_ht_gg_clu))
+
+HT3 &lt;- ggplot(data = mat_ht_clu, aes(x = Var1, y = Var2)) + 
+       geom_tile(aes(fill = value)) +  
+        scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>)
+print(HT3)
+</code></pre>
+<p><img src="../images/part6/heatmap8.svg" alt="scatter plot"></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x52A0;&#x4E0A;&#x805A;&#x7C7B;&#x7684;&#x7EBF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ggdendrogram&#x53E0;&#x52A0;&#x4E0A;&#x53BB;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(grid)
+dendro_plot_col &lt;- ggdendrogram(data = mat_dendro_col, rotate = <span class="hljs-literal">FALSE</span>) +
+                   theme(axis.text.x = element_text(size = <span class="hljs-number">2</span>))
+
+dendro_plot_row &lt;- ggdendrogram(data = mat_dendro_row, rotate = <span class="hljs-literal">TRUE</span>) +
+                   theme(axis.text.y = element_text(size = <span class="hljs-number">2</span>))
+
+HT4 &lt;- ggplot(data = mat_ht_clu, aes(x = Var1, y = Var2)) +
+       geom_tile(aes(fill = value)) +
+       scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>) +
+       theme(axis.text.y = element_blank(),
+             axis.title.y = element_blank(),
+             axis.ticks.y = element_blank(),
+             axis.text.x = element_blank(),
+             axis.title.x = element_blank(),
+             axis.ticks.x = element_blank(),
+             legend.position = <span class="hljs-string">&quot;bottom&quot;</span>)
+
+grid.newpage()
+print(HT4, vp=viewport(<span class="hljs-number">0.6</span>, <span class="hljs-number">0.8</span>, x = <span class="hljs-number">0.5</span>, y = <span class="hljs-number">0.3</span>)) <span class="hljs-comment">#x change x positiion, y change y position,</span>
+print(dendro_plot_col, vp=viewport(<span class="hljs-number">0.66</span>, <span class="hljs-number">0.2</span>, x = <span class="hljs-number">0.495</span>, y = <span class="hljs-number">0.78</span>)) <span class="hljs-comment"># 0.875change cluster plot wide</span>
+print(dendro_plot_row, vp=viewport(<span class="hljs-number">0.2</span>, <span class="hljs-number">0.77</span>, x = <span class="hljs-number">0.9</span>, y = <span class="hljs-number">0.335</span>)) <span class="hljs-comment"># 0.65change cluster plot wide</span>
+</code></pre>
+<p><img src="../images/part6/heatmap9.svg" alt="scatter plot"></p>
 
                                 
                                 </section>
@@ -621,7 +634,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"next":{"title":"6.3 相关性热图","level":"6.3","depth":1,"path":"part6/correlation_heatmap.md","ref":"part6/correlation_heatmap.md","articles":[]},"previous":{"title":"6.1 基本的热图","level":"6.1","depth":1,"path":"part6/basic.md","ref":"part6/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/ggplot2_heatmap.md","mtime":"2018-12-20T02:02:33.896Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-19T01:09:53.271Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"next":{"title":"6.3 相关性热图","level":"6.3","depth":1,"path":"part6/correlation_heatmap.md","ref":"part6/correlation_heatmap.md","articles":[]},"previous":{"title":"6.1 基本的热图","level":"6.1","depth":1,"path":"part6/basic.md","ref":"part6/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/ggplot2_heatmap.md","mtime":"2018-12-20T04:20:14.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-19T01:09:53.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../part7/2D PCA.md" />
+    <link rel="next" href="../part7/2D_PCA.html" />
     
     
     <link rel="prev" href="ggplot2_heatmap.html" />
@@ -341,9 +341,9 @@
         
         
     
-        <li class="chapter " data-level="7.1" data-path="../part7/2D PCA.md">
+        <li class="chapter " data-level="7.1" data-path="../part7/2D_PCA.html">
             
-                <span>
+                <a href="../part7/2D_PCA.html">
             
                     
                     7.1 2D PCA
@@ -354,9 +354,9 @@
             
         </li>
     
-        <li class="chapter " data-level="7.2" data-path="../part7/3D PCA.md">
+        <li class="chapter " data-level="7.2" data-path="../part7/3D_PCA.html">
             
-                <span>
+                <a href="../part7/3D_PCA.html">
             
                     
                     7.2 3D PCA
@@ -374,25 +374,12 @@
         
         
     
-        <li class="chapter " data-level="8.1" data-path="../part8/ROC plot.md">
+        <li class="chapter " data-level="8.1" data-path="../part8/basic.html">
             
-                <span>
+                <a href="../part8/basic.html">
             
                     
                     8.1 基本的ROC曲线
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="8.2" data-path="../part8/parameter.md">
-            
-                <span>
-            
-                    
-                    8.2 图形参数调整
             
                 </a>
             
@@ -407,25 +394,12 @@
         
         
     
-        <li class="chapter " data-level="9.1" data-path="../part9/KM plot.md">
+        <li class="chapter " data-level="9.1" data-path="../part9/basic.html">
             
-                <span>
+                <a href="../part9/basic.html">
             
                     
                     9.1 基本的生存分析
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="9.2" data-path="../part9/parameter.md">
-            
-                <span>
-            
-                    
-                    9.2 图形参数调整
             
                 </a>
             
@@ -469,16 +443,16 @@
 
     
         
-        <li class="header">11.GSEA分析</li>
+        <li class="header">11.circular plot</li>
         
         
     
-        <li class="chapter " data-level="11.1" data-path="../part11/introduce.md">
+        <li class="chapter " data-level="11.1" data-path="../part11/circular plot.md">
             
                 <span>
             
                     
-                    11.1 GSEA算法原理介绍
+                    11.1 基本的circular plot
             
                 </a>
             
@@ -486,45 +460,12 @@
             
         </li>
     
-        <li class="chapter " data-level="11.2" data-path="../part11/GSEA.md">
+        <li class="chapter " data-level="11.2" data-path="../part11/parameter.md">
             
                 <span>
             
                     
-                    11.2 GSEA图形展示
-            
-                </a>
-            
-
-            
-        </li>
-    
-
-    
-        
-        <li class="header">12.circular plot</li>
-        
-        
-    
-        <li class="chapter " data-level="12.1" data-path="../part12/circular plot.md">
-            
-                <span>
-            
-                    
-                    12.1 基本的circular plot
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="12.2" data-path="../part12/parameter.md">
-            
-                <span>
-            
-                    
-                    12.2 图形参数调整
+                    11.2 图形参数调整
             
                 </a>
             
@@ -578,6 +519,78 @@
                                 <section class="normal markdown-section">
                                 
                                 <h3 id="correlation-heatmap">correlation heatmap</h3>
+<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
+<p>&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5C55;&#x793A;&#x591A;&#x4E2A;&#x53D8;&#x91CF;&#x4E4B;&#x95F4;&#x7684;&#x76F8;&#x5173;&#x5173;&#x7CFB;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x540C;&#x65F6;&#x5C55;&#x793A;10&#x4E2A;&#x57FA;&#x56E0;&#x76F4;&#x63A5;&#x7684;&#x76F8;&#x5173;&#x7CFB;&#x6570;</p>
+<h5 id="correlation-plot">correlation plot</h5>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(ggcorrplot)
+
+
+<span class="hljs-comment">#&#x51C6;&#x5907;&#x6570;&#x636E;</span>
+<span class="hljs-comment">#&#x6784;&#x5EFA;&#x76F8;&#x5173;&#x8868;&#x8FBE;&#x77E9;&#x9635;</span>
+get_lower_tri&lt;-<span class="hljs-keyword">function</span>(cormat){
+    cormat[upper.tri(cormat)] &lt;- <span class="hljs-literal">NA</span>
+    <span class="hljs-keyword">return</span>(cormat)
+}
+<span class="hljs-comment"># Get upper triangle of the correlation matrix</span>
+get_upper_tri &lt;- <span class="hljs-keyword">function</span>(cormat){
+    cormat[lower.tri(cormat)]&lt;- <span class="hljs-literal">NA</span>
+    <span class="hljs-keyword">return</span>(cormat)
+}
+
+<span class="hljs-comment">#Reorder the correlation matrix</span>
+reorder_cormat &lt;- <span class="hljs-keyword">function</span>(cormat){
+    <span class="hljs-comment"># Use correlation between variables as distance</span>
+    dd &lt;- as.dist((<span class="hljs-number">1</span>-cormat)/<span class="hljs-number">2</span>)
+    hc &lt;- hclust(dd)
+    cormat &lt;-cormat[hc$order, hc$order]
+}
+
+<span class="hljs-comment">#&#x5229;&#x7528;&#x524D;&#x9762;&#x4E24;&#x8282;&#x4E2D;&#x5DEE;&#x5F02;&#x8868;&#x8FBE;&#x6570;&#x636E;&#xFF0C;&#x9009;&#x53D6;10&#x4E2A;&#x57FA;&#x56E0;&#x7684;&#x6570;&#x636E;&#x505A;&#x5C55;&#x793A;</span>
+rt_cor &lt;- t(rt_ht[<span class="hljs-number">20</span>:<span class="hljs-number">30</span>, ])
+cormat &lt;- round(cor(rt_cor), <span class="hljs-number">2</span>)
+</code></pre>
+<blockquote>
+<p>cormat&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5982;&#x4E0B;</p>
+</blockquote>
+<p><img src="../images/part6/data_format3.png" alt="cor_data_format"></p>
+<pre><code class="lang-R">svg(file = <span class="hljs-string">&apos;heatmap9.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat)
+dev.off()
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x4E0B;&#x989C;&#x8272;</span>
+svg(file = <span class="hljs-string">&apos;heatmap10.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat, hc.order = <span class="hljs-literal">TRUE</span>, 
+           outline.col = <span class="hljs-string">&quot;white&quot;</span>,
+           colors = c(<span class="hljs-string">&quot;#6D9EC1&quot;</span>, <span class="hljs-string">&quot;white&quot;</span>, <span class="hljs-string">&quot;#E46726&quot;</span>))
+dev.off()
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x6392;&#x4E2A;&#x5E8F;</span>
+svg(file = <span class="hljs-string">&apos;heatmap11.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat, hc.order = <span class="hljs-literal">TRUE</span>, outline.col = <span class="hljs-string">&quot;white&quot;</span>)
+dev.off()
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x5C55;&#x793A;upper&#x6216;&#x8005;lower</span>
+<span class="hljs-comment">#&#x8BBE;&#x7F6E;type&#x53C2;&#x6570;</span>
+svg(file = <span class="hljs-string">&apos;heatmap12.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat, hc.order = <span class="hljs-literal">TRUE</span>, outline.col = <span class="hljs-string">&quot;white&quot;</span>, type = <span class="hljs-string">&quot;lower&quot;</span>)
+dev.off()
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;&#x76F8;&#x5173;&#x7CFB;&#x6570;&#x7684;&#x503C;</span>
+<span class="hljs-comment"># lab = TRUE</span>
+svg(file = <span class="hljs-string">&apos;heatmap12.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat, hc.order = <span class="hljs-literal">TRUE</span>, type = <span class="hljs-string">&quot;lower&quot;</span>, lab = <span class="hljs-literal">TRUE</span>)
+dev.off()
+
+<span class="hljs-comment">#&#x4E5F;&#x53EF;&#x4EE5;&#x6362;&#x79CD;&#x5C55;&#x793A;&#x65B9;&#x5F0F;</span>
+<span class="hljs-comment"># method = &quot;circle&quot;</span>
+svg(file = <span class="hljs-string">&apos;heatmap14.svg&apos;</span>, width = <span class="hljs-number">10</span>, height = <span class="hljs-number">6</span>)
+ggcorrplot(cormat, hc.order = <span class="hljs-literal">TRUE</span>, type = <span class="hljs-string">&quot;lower&quot;</span>,
+           method = <span class="hljs-string">&quot;circle&quot;</span>)
+dev.off()
+</code></pre>
+<p><img src="../images/part6/heatmap10.svg" alt="cor_heatmap"><img src="../images/part6/heatmap11.svg" alt="cor_heatmap">
+<img src="../images/part6/heatmap12.svg" alt="cor_heatmap"><img src="../images/part6/heatmap13.svg" alt="cor_heatmap">
+<img src="../images/part6/heatmap14.svg" alt="cor_heatmap"><img src="../images/part6/heatmap15.svg" alt="cor_heatmap"></p>
 
                                 
                                 </section>
@@ -610,7 +623,7 @@
                 </a>
                 
                 
-                <a href="../part7/2D PCA.md" class="navigation navigation-next " aria-label="Next page: 7.1 2D PCA">
+                <a href="../part7/2D_PCA.html" class="navigation navigation-next " aria-label="Next page: 7.1 2D PCA">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -621,7 +634,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6.3 相关性热图","level":"6.3","depth":1,"next":{"title":"7.1 2D PCA","level":"7.1","depth":1,"path":"part7/2D PCA.md","ref":"part7/2D PCA.md","articles":[]},"previous":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"path":"part6/ggplot2_heatmap.md","ref":"part6/ggplot2_heatmap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/correlation_heatmap.md","mtime":"2018-12-20T02:10:54.901Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-19T01:09:53.271Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6.3 相关性热图","level":"6.3","depth":1,"next":{"title":"7.1 2D PCA","level":"7.1","depth":1,"path":"part7/2D_PCA.md","ref":"part7/2D_PCA.md","articles":[]},"previous":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"path":"part6/ggplot2_heatmap.md","ref":"part6/ggplot2_heatmap.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/correlation_heatmap.md","mtime":"2018-12-20T05:50:02.108Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-19T01:09:53.271Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

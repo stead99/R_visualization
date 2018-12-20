@@ -30,26 +30,20 @@
 * [6.3 相关性热图](part6/correlation_heatmap.md)
 
 ### 7.主成分分析(PCA)
-* [7.1 2D PCA](part7/2D PCA.md)
-* [7.2 3D PCA](part7/3D PCA.md)
+* [7.1 2D PCA](part7/2D_PCA.md)
+* [7.2 3D PCA](part7/3D_PCA.md)
 
 ### 8. ROC曲线
-* [8.1 基本的ROC曲线](part8/ROC plot.md)
-* [8.2 图形参数调整](part8/parameter.md)
+* [8.1 基本的ROC曲线](part8/basic.md)
 
 ### 9.生存分析(KM plot)
-* [9.1 基本的生存分析](part9/KM plot.md)
-* [9.2 图形参数调整](part9/parameter.md)
+* [9.1 基本的生存分析](part9/basic.md)
 
 ### 10.KEGG和GO分析
 * [10.1 KEGG分析](part10/KEGG.md)
 * [10.2 GO分析](part10/GO.md)
 
-### 11.GSEA分析
-* [11.1 GSEA算法原理介绍](part11/introduce.md)
-* [11.2 GSEA图形展示](part11/GSEA.md)
-
-### 12.circular plot
-* [12.1 基本的circular plot](part12/circular plot.md)
-* [12.2 图形参数调整](part12/parameter.md)
+### 11.circular plot
+* [11.1 基本的circular plot](part11/circular plot.md)
+* [11.2 图形参数调整](part11/parameter.md)
 
