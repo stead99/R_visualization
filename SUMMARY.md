@@ -22,12 +22,12 @@
 * [4.4 小提琴图](part4/violin.md)
 
 ### 5.密度图(density plot)
-* [5.1 基本的密度图](part5/density plot.md)
-* [5.2 图形参数调整](part5/parameter.md)
+* [5.1 基本的密度图](part5/basic.md)
 
 ### 6.热图(Heatmap)
-* [6.1 基本的热图](part6/heatmap plot.md) 
-* [6.2 相关性热图](part6/correlation heatmap plot.md)
+* [6.1 基本的热图](part6/basic.md) 
+* [6.2 ggplot2 heatmap](part6/ggplot2_heatmap.md) 
+* [6.3 相关性热图](part6/correlation_heatmap.md)
 
 ### 7.主成分分析(PCA)
 * [7.1 2D PCA](part7/2D PCA.md)

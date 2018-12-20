@@ -1,0 +1,736 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.1 基本的热图 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="ggplot2_heatmap.html" />
+    
+    
+    <link rel="prev" href="../part5/basic.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1.前言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/Introduction.html">
+            
+                <a href="../part1/Introduction.html">
+            
+                    
+                    1.1 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part1/purpose.html">
+            
+                <a href="../part1/purpose.html">
+            
+                    
+                    1.2 制作该教程的目的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../part1/basic_knowledge.html">
+            
+                <a href="../part1/basic_knowledge.html">
+            
+                    
+                    1.3 学习该教程需要掌握的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part1/scope_of_application.html">
+            
+                <a href="../part1/scope_of_application.html">
+            
+                    
+                    1.4 该教程适用人群
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.散点图(scatter plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../part2/basic.html">
+            
+                <a href="../part2/basic.html">
+            
+                    
+                    2.1 基本的散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../part2/3D_scatter.html">
+            
+                <a href="../part2/3D_scatter.html">
+            
+                    
+                    2.2 3D散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.线图(line plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../part3/basic.html">
+            
+                <a href="../part3/basic.html">
+            
+                    
+                    3.1 基本的线图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.箱型图(boxplot)</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../part4/basic.html">
+            
+                <a href="../part4/basic.html">
+            
+                    
+                    4.1 基本的箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../part4/parameter.html">
+            
+                <a href="../part4/parameter.html">
+            
+                    
+                    4.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../part4/more_group.html">
+            
+                <a href="../part4/more_group.html">
+            
+                    
+                    4.3 多分组箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../part4/violin.html">
+            
+                <a href="../part4/violin.html">
+            
+                    
+                    4.4 小提琴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5.密度图(density plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../part5/basic.html">
+            
+                <a href="../part5/basic.html">
+            
+                    
+                    5.1 基本的密度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6.热图(Heatmap)</li>
+        
+        
+    
+        <li class="chapter active" data-level="6.1" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    6.1 基本的热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="ggplot2_heatmap.html">
+            
+                <a href="ggplot2_heatmap.html">
+            
+                    
+                    6.2 ggplot2 heatmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="correlation_heatmap.html">
+            
+                <a href="correlation_heatmap.html">
+            
+                    
+                    6.3 相关性热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">7.主成分分析(PCA)</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../part7/2D PCA.md">
+            
+                <span>
+            
+                    
+                    7.1 2D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../part7/3D PCA.md">
+            
+                <span>
+            
+                    
+                    7.2 3D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">8. ROC曲线</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../part8/ROC plot.md">
+            
+                <span>
+            
+                    
+                    8.1 基本的ROC曲线
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="8.2" data-path="../part8/parameter.md">
+            
+                <span>
+            
+                    
+                    8.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">9.生存分析(KM plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../part9/KM plot.md">
+            
+                <span>
+            
+                    
+                    9.1 基本的生存分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="9.2" data-path="../part9/parameter.md">
+            
+                <span>
+            
+                    
+                    9.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">10.KEGG和GO分析</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../part10/KEGG.md">
+            
+                <span>
+            
+                    
+                    10.1 KEGG分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../part10/GO.md">
+            
+                <span>
+            
+                    
+                    10.2 GO分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">11.GSEA分析</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../part11/introduce.md">
+            
+                <span>
+            
+                    
+                    11.1 GSEA算法原理介绍
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="11.2" data-path="../part11/GSEA.md">
+            
+                <span>
+            
+                    
+                    11.2 GSEA图形展示
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">12.circular plot</li>
+        
+        
+    
+        <li class="chapter " data-level="12.1" data-path="../part12/circular plot.md">
+            
+                <span>
+            
+                    
+                    12.1 基本的circular plot
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="12.2" data-path="../part12/parameter.md">
+            
+                <span>
+            
+                    
+                    12.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.1 基本的热图</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="&#x57FA;&#x672C;&#x6563;&#x70B9;&#x56FE;&#x5C55;&#x793A;">&#x57FA;&#x672C;&#x6563;&#x70B9;&#x56FE;&#x5C55;&#x793A;</h3>
+<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
+<p>heatmap&#x8FD0;&#x7528;&#x7684;&#x5730;&#x65B9;&#x6BD4;&#x8F83;&#x591A;&#xFF0C;&#x80FD;&#x591F;&#x5C55;&#x793A;&#x7684;&#x4FE1;&#x606F;&#x4E5F;&#x975E;&#x5E38;&#x4E30;&#x5BCC;&#xFF0C;&#x5E38;&#x7528;&#x7684;&#x5C31;&#x662F;&#x5C55;&#x793A;&#x57FA;&#x56E0;&#x5728;&#x4E0D;&#x540C;&#x7EC4;&#x522B;&#x6837;&#x672C;&#x4E2D;&#x7684;&#x8868;&#x8FBE;&#x60C5;&#x51B5;&#x3002;</p>
+<h4 id="&#x5229;&#x7528;limma&#x5305;&#x505A;&#x4E00;&#x4E2A;&#x5DEE;&#x5F02;&#x8868;&#x8FBE;&#x5206;&#x6790;">&#x5229;&#x7528;limma&#x5305;&#x505A;&#x4E00;&#x4E2A;&#x5DEE;&#x5F02;&#x8868;&#x8FBE;&#x5206;&#x6790;</h4>
+<pre><code class="lang-R">rt &lt;- read.table(file = <span class="hljs-string">&quot;/Users/stead/Documents/SourceTree/gitbook/R_visualization/data/LUAD_test.txt&quot;</span>, 
+                 header = <span class="hljs-literal">TRUE</span>, row.names = <span class="hljs-number">1</span>, stringsAsFactors = <span class="hljs-literal">FALSE</span>)
+
+<span class="hljs-comment">#heatmap &#x5728;&#x5DEE;&#x5F02;&#x8868;&#x8FBE;&#x57FA;&#x56E0;&#x53EF;&#x4EE5;&#x663E;&#x793A;&#x7684;&#x66F4;&#x6709;&#x5C42;&#x6B21;&#xFF0C;&#x90A3;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x7B80;&#x5355;&#x7684;&#x505A;&#x4E00;&#x4E2A;&#x5DEE;&#x5F02;&#x5206;&#x6790;&#xFF0C;&#x7528;heatmap&#x5C55;&#x793A;&#x5DEE;&#x5F02;&#x8868;&#x8FBE;&#x57FA;&#x56E0;</span>
+<span class="hljs-keyword">library</span>(limma)
+<span class="hljs-comment">#&#x6784;&#x5EFA;&#x4E00;&#x4E2A;phenotype&#x7684;&#x6587;&#x4EF6;&#x6807;&#x793A;&#x51FA;&#x5404;&#x4E2A;&#x6837;&#x672C;tumor&#x548C;normal&#x5C5E;&#x6027;</span>
+rt_sam_m &lt;- data.frame(cbind(colnames(rt), c(rep(<span class="hljs-string">&apos;Tumor&apos;</span>, <span class="hljs-number">57</span>), rep(<span class="hljs-string">&apos;Normal&apos;</span>, <span class="hljs-number">57</span>))), stringsAsFactors = <span class="hljs-literal">FALSE</span>)
+colnames(rt_sam_m) &lt;- c(<span class="hljs-string">&apos;samples_id&apos;</span>, <span class="hljs-string">&apos;group&apos;</span>)
+m_group = factor(rt_sam_m$group, levels=c(<span class="hljs-string">&apos;Tumor&apos;</span>, <span class="hljs-string">&apos;Normal&apos;</span>))
+
+design_m = model.matrix(~<span class="hljs-number">0</span> + m_group)
+row.names(design_m) &lt;- rt_sam_m$samples_id
+colnames(design_m) &lt;- c(<span class="hljs-string">&apos;Tumor&apos;</span>,<span class="hljs-string">&apos;Normal&apos;</span>)
+
+<span class="hljs-comment">#&#x5DEE;&#x5F02;&#x5206;&#x6790;</span>
+m_fit &lt;- lmFit(rt, design_m)
+cont.matrix &lt;- makeContrasts(TumorvsNormal = Tumor-Normal, levels = design_m)
+m_fit2 &lt;- contrasts.fit(m_fit, cont.matrix)
+m_fit3 &lt;- eBayes(m_fit2)
+rt_diff &lt;- topTreat(m_fit3, number = length(row.names(rt)))
+rt_diff2 &lt;- rt_diff[which(abs(rt_diff$logFC) &gt; <span class="hljs-number">1</span> &amp; rt_diff$P.Value &lt; <span class="hljs-number">0.05</span>), ]
+dim(rt_diff2)<span class="hljs-comment">#798 6, &#x6709;798&#x4E2A;&#x5DEE;&#x5F02;&#x57FA;&#x56E0;</span>
+</code></pre>
+<blockquote>
+<p>rt_diff2&#x6570;&#x636E;&#x5F62;&#x5F0F;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;</p>
+</blockquote>
+<p><img src="../images/part6/FC_P.png" alt="scatter plot"></p>
+<h4 id="&#x5229;&#x7528;heatmap2&#x505A;heatmap">&#x5229;&#x7528;heatmap.2&#x505A;heatmap</h4>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x4F5C;&#x4E3A;&#x5B9E;&#x4F8B;&#x6570;&#x636E;&#xFF0C;&#x5BF9;&#x4E0A;&#x8FF0;&#x524D;100&#x4E2A;&#x57FA;&#x56E0;&#x505A;heatmap</span>
+<span class="hljs-keyword">library</span>(gplots)
+rt_ht &lt;- rt[row.names(rt_diff2)[order(abs(rt_diff2$logFC), decreasing = <span class="hljs-literal">TRUE</span>)[<span class="hljs-number">1</span>:<span class="hljs-number">100</span>]], ]<span class="hljs-comment">#&#x53D6;&#x51FA;&#x524D;100&#x7684;DEGs</span>
+mat_ht &lt;- as.matrix(apply(rt_ht, <span class="hljs-number">2</span>, <span class="hljs-keyword">function</span>(x){as.numeric(x)}))
+mat_ht_z &lt;- apply(mat_ht, <span class="hljs-number">2</span>, FUN = <span class="hljs-keyword">function</span>(x){(x-median(x))/sd(x)})
+row.names(mat_ht_z) &lt;- row.names(rt_ht)
+
+heatmap.2(mat_ht_z, col = colorpanel(<span class="hljs-number">99</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;red&quot;</span>), dendrogram = <span class="hljs-string">&quot;both&quot;</span>, keysize = <span class="hljs-number">1</span>, 
+         hclustfun = <span class="hljs-keyword">function</span>(x){hclust(x, method = <span class="hljs-string">&apos;ward.D2&apos;</span>)}, trace = <span class="hljs-string">&quot;none&quot;</span>, density.info = <span class="hljs-string">&quot;none&quot;</span>)
+
+<span class="hljs-comment">#&#x663E;&#x793A;tumor&#x548C;normal&#x6807;&#x793A;</span>
+heatmap.cols &lt;- c(rep(<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-number">57</span>), rep(<span class="hljs-string">&apos;blue&apos;</span>, <span class="hljs-number">57</span>))
+
+<span class="hljs-comment">#ColSideColors&#x8BBE;&#x7F6E;&#x5206;&#x7EC4;&#x7684;ColSide</span>
+heatmap.2(mat_ht_z, col = colorpanel(<span class="hljs-number">99</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;red&quot;</span>), dendrogram = <span class="hljs-string">&quot;both&quot;</span>, keysize = <span class="hljs-number">1</span>,
+         hclustfun = <span class="hljs-keyword">function</span>(x){hclust(x, method = <span class="hljs-string">&apos;ward.D2&apos;</span>)}, trace = <span class="hljs-string">&quot;none&quot;</span>, density.info = <span class="hljs-string">&quot;none&quot;</span>, 
+          ColSideColors = heatmap.cols)
+</code></pre>
+<p><img src="../images/part6/heatmap1.svg" alt="scatter plot">
+<img src="../images/part6/heatmap2.svg" alt="scatter plot"></p>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x9009;&#x62E9;row&#x6216;&#x8005;col&#x662F;&#x5426;&#x805A;&#x7C7B;</span>
+<span class="hljs-comment">#Colv = T, Rowv = F</span>
+heatmap.2(mat_ht_z, col = colorpanel(<span class="hljs-number">99</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;red&quot;</span>), dendrogram = <span class="hljs-string">&quot;both&quot;</span>, keysize = <span class="hljs-number">1</span>,
+         hclustfun = <span class="hljs-keyword">function</span>(x){hclust(x, method = <span class="hljs-string">&apos;ward.D2&apos;</span>)}, trace = <span class="hljs-string">&quot;none&quot;</span>, density.info = <span class="hljs-string">&quot;none&quot;</span>, 
+          ColSideColors = heatmap.cols, Colv = <span class="hljs-literal">F</span>, Rowv = <span class="hljs-literal">T</span>) 
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;labs&#x90FD;&#x53BB;&#x6389;</span>
+<span class="hljs-comment">#labRow = NA, labCol = NA</span>
+heatmap.2(mat_ht_z, col = colorpanel(<span class="hljs-number">99</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;red&quot;</span>), dendrogram = <span class="hljs-string">&quot;both&quot;</span>, keysize = <span class="hljs-number">1</span>,
+         hclustfun = <span class="hljs-keyword">function</span>(x){hclust(x, method = <span class="hljs-string">&apos;ward.D2&apos;</span>)}, trace = <span class="hljs-string">&quot;none&quot;</span>, density.info = <span class="hljs-string">&quot;none&quot;</span>, 
+          ColSideColors = heatmap.cols, Colv = <span class="hljs-literal">F</span>, Rowv = <span class="hljs-literal">T</span>, labRow = <span class="hljs-literal">NA</span>, labCol = <span class="hljs-literal">NA</span>)
+
+<span class="hljs-comment">#&#x52A0;&#x4E0A;legend&#x6765;&#x6807;&#x793A;tumor &#x548C;Normal</span>
+heatmap.2(mat_ht_z, col = colorpanel(<span class="hljs-number">99</span>, <span class="hljs-string">&quot;blue&quot;</span>, <span class="hljs-string">&quot;black&quot;</span>, <span class="hljs-string">&quot;red&quot;</span>), dendrogram = <span class="hljs-string">&quot;both&quot;</span>, keysize = <span class="hljs-number">1</span>,
+         hclustfun = <span class="hljs-keyword">function</span>(x){hclust(x, method = <span class="hljs-string">&apos;ward.D2&apos;</span>)}, trace = <span class="hljs-string">&quot;none&quot;</span>, density.info = <span class="hljs-string">&quot;none&quot;</span>, 
+          ColSideColors = heatmap.cols, Colv = <span class="hljs-literal">F</span>, Rowv = <span class="hljs-literal">T</span>, labRow = <span class="hljs-literal">NA</span>, labCol = <span class="hljs-literal">NA</span>)
+legend(<span class="hljs-string">&apos;topleft&apos;</span>, legend = c(<span class="hljs-string">&apos;tumor&apos;</span>, <span class="hljs-string">&apos;normal&apos;</span>), pch = <span class="hljs-number">15</span>, bty = <span class="hljs-string">&apos;n&apos;</span>, col = c(<span class="hljs-string">&apos;red&apos;</span>, <span class="hljs-string">&apos;blue&apos;</span>), text.col = <span class="hljs-string">&quot;black&quot;</span>)
+</code></pre>
+<p><img src="../images/part6/heatmap3.svg" alt="scatter plot">
+<img src="../images/part6/heatmap4.svg" alt="scatter plot">
+<img src="../images/part6/heatmap5.svg" alt="scatter plot"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../part5/basic.html" class="navigation navigation-prev " aria-label="Previous page: 5.1 基本的密度图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="ggplot2_heatmap.html" class="navigation navigation-next " aria-label="Next page: 6.2 ggplot2 heatmap">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.1 基本的热图","level":"6.1","depth":1,"next":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"path":"part6/ggplot2_heatmap.md","ref":"part6/ggplot2_heatmap.md","articles":[]},"previous":{"title":"5.1 基本的密度图","level":"5.1","depth":1,"path":"part5/basic.md","ref":"part5/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/basic.md","mtime":"2018-12-20T02:09:22.807Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-19T01:09:53.271Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

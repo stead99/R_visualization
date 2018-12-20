@@ -1,7 +1,7 @@
 ###violin plot
 violin plot和boxplot功能类似，但是violin plot将点的密度横向的展示出来了，因此可以很好的看出数据在坐标轴分布的情况。
 
->数据适用适用上一节的数据rt_box_m
+>数据继续使用上一节的数据rt_box_m
 
 ```
 ###类似于boxplot，使用的geom_violin来生成violin plot
@@ -11,6 +11,7 @@ PV1 <- ggplot(rt_box_m, aes(x = gene_name, y = expression)) +
 print(PV1)
 
 ###感觉这样有点难看
+###我们可以把boxplot也加入进去，可能好看点
 svg(file = 'box_plot17.svg', width = 8, height = 4)
 PV2 <- ggplot(rt_box_m, aes(x = gene_name, y = expression)) + 
        geom_violin(trim = FALSE, aes(color = group)) +
