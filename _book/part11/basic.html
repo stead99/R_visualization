@@ -1,0 +1,725 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>11.1 基本的circular plot · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="../part10/GO.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1.前言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/Introduction.html">
+            
+                <a href="../part1/Introduction.html">
+            
+                    
+                    1.1 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part1/purpose.html">
+            
+                <a href="../part1/purpose.html">
+            
+                    
+                    1.2 制作该教程的目的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../part1/basic_knowledge.html">
+            
+                <a href="../part1/basic_knowledge.html">
+            
+                    
+                    1.3 学习该教程需要掌握的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part1/scope_of_application.html">
+            
+                <a href="../part1/scope_of_application.html">
+            
+                    
+                    1.4 该教程适用人群
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.散点图(scatter plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../part2/basic.html">
+            
+                <a href="../part2/basic.html">
+            
+                    
+                    2.1 基本的散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../part2/3D_scatter.html">
+            
+                <a href="../part2/3D_scatter.html">
+            
+                    
+                    2.2 3D散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.线图(line plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../part3/basic.html">
+            
+                <a href="../part3/basic.html">
+            
+                    
+                    3.1 基本的线图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.箱型图(boxplot)</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../part4/basic.html">
+            
+                <a href="../part4/basic.html">
+            
+                    
+                    4.1 基本的箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../part4/parameter.html">
+            
+                <a href="../part4/parameter.html">
+            
+                    
+                    4.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../part4/more_group.html">
+            
+                <a href="../part4/more_group.html">
+            
+                    
+                    4.3 多分组箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../part4/violin.html">
+            
+                <a href="../part4/violin.html">
+            
+                    
+                    4.4 小提琴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5.密度图(density plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../part5/basic.html">
+            
+                <a href="../part5/basic.html">
+            
+                    
+                    5.1 基本的密度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6.热图(Heatmap)</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../part6/basic.html">
+            
+                <a href="../part6/basic.html">
+            
+                    
+                    6.1 基本的热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../part6/ggplot2_heatmap.html">
+            
+                <a href="../part6/ggplot2_heatmap.html">
+            
+                    
+                    6.2 ggplot2 heatmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../part6/correlation_heatmap.html">
+            
+                <a href="../part6/correlation_heatmap.html">
+            
+                    
+                    6.3 相关性热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">7.主成分分析(PCA)</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../part7/2D_PCA.html">
+            
+                <a href="../part7/2D_PCA.html">
+            
+                    
+                    7.1 2D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../part7/3D_PCA.html">
+            
+                <a href="../part7/3D_PCA.html">
+            
+                    
+                    7.2 3D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">8. ROC曲线</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../part8/basic.html">
+            
+                <a href="../part8/basic.html">
+            
+                    
+                    8.1 基本的ROC曲线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">9.生存分析(KM plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../part9/basic.html">
+            
+                <a href="../part9/basic.html">
+            
+                    
+                    9.1 基本的生存分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">10.KEGG和GO分析</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../part10/KEGG.html">
+            
+                <a href="../part10/KEGG.html">
+            
+                    
+                    10.1 KEGG分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../part10/GO.html">
+            
+                <a href="../part10/GO.html">
+            
+                    
+                    10.2 GO分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">11.circular plot</li>
+        
+        
+    
+        <li class="chapter active" data-level="11.1" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    11.1 基本的circular plot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >11.1 基本的circular plot</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="circos-plot">circos plot</h3>
+<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
+<p>&#x5C55;&#x793A;&#x5404;&#x7EC4;&#x6570;&#x636E;&#x4E4B;&#x95F4;&#x6240;&#x5360;&#x6BD4;&#x4F8B;</p>
+<blockquote>
+<p>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5982;&#x4E0B;</p>
+</blockquote>
+<p><img src="../images/part11/data_format1.png" alt="data format"></p>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x8BFB;&#x53D6;&#x6570;&#x636E;</span>
+load(<span class="hljs-string">&apos;./test_cir.Rdata&apos;</span>) <span class="hljs-comment">#rt_cir</span>
+load(<span class="hljs-string">&apos;./color_list.Rdata&apos;</span>) <span class="hljs-comment">#color_list</span>
+
+<span class="hljs-comment">#&#x5B9A;&#x4E49;&#x5404;&#x4E2A;&#x7EC4;&#x7684;&#x989C;&#x8272;</span>
+state_col &lt;- color_list[<span class="hljs-number">3</span>:<span class="hljs-number">25</span>]
+names(state_col) &lt;- c(colnames(rt_cir), row.names(rt_cir))
+state_col2 &lt;- state_col[<span class="hljs-number">4</span>:<span class="hljs-number">23</span>]
+colmat &lt;-  rep(state_col2, <span class="hljs-number">3</span>)
+dim(colmat) &lt;- dim(rt_cir)
+</code></pre>
+<blockquote>
+<p>&#x4F5C;&#x56FE;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x7B80;&#x5355;&#x7684;&#x5C55;&#x793A;&#x5404;&#x4E2A;&#x7EC4;&#x522B;&#x7684;&#x6570;&#x91CF;&#x5927;&#x5C0F;&#x548C;&#x6BD4;&#x4F8B;</span>
+circos.par(start.degree = <span class="hljs-number">90</span>, clock.wise = <span class="hljs-literal">FALSE</span>)
+cdm_res = chordDiagram(rt_cir, col = colmat, grid.col = state_col, directional = <span class="hljs-literal">FALSE</span>, 
+                      annotationTrack = <span class="hljs-string">&quot;grid&quot;</span>, preAllocateTracks = list(track.height = <span class="hljs-number">0.5</span>))
+</code></pre>
+<p><img src="../images/part11/cir1.svg" alt="cir1"></p>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x4E3A;&#x5404;&#x4E2A;&#x7EC4;&#x522B;&#x52A0;&#x4E0A;&#x523B;&#x5EA6;&#x6807;&#x7B7E;</span>
+circos.par(start.degree = <span class="hljs-number">90</span>, clock.wise = <span class="hljs-literal">FALSE</span>)
+cdm_res = chordDiagram(rt_cir, col = colmat, grid.col = state_col, directional = <span class="hljs-literal">FALSE</span>, 
+                      annotationTrack = <span class="hljs-string">&quot;grid&quot;</span>, preAllocateTracks = list(track.height = <span class="hljs-number">0.5</span>))
+
+<span class="hljs-comment">#&#x4E3A;&#x5404;&#x4E2A;&#x7EC4;&#x522B;&#x523B;&#x5EA6;&#x6807;&#x7B7E;</span>
+circos.track(track.index = <span class="hljs-number">2</span>, panel.fun = <span class="hljs-keyword">function</span>(x, y) {
+  sector.index = get.cell.meta.data(<span class="hljs-string">&quot;sector.index&quot;</span>)
+  xlim = get.cell.meta.data(<span class="hljs-string">&quot;xlim&quot;</span>)
+  ylim = get.cell.meta.data(<span class="hljs-string">&quot;ylim&quot;</span>)
+  xlim = CELL_META$xlim
+  breaks = seq(<span class="hljs-number">0</span>, xlim[<span class="hljs-number">2</span>], by = <span class="hljs-number">5e4</span>)
+  circos.axis(major.at = breaks, labels = paste0(breaks/<span class="hljs-number">2000</span>, <span class="hljs-string">&quot;KB&quot;</span>), labels.cex = <span class="hljs-number">0.5</span>, minor.ticks = <span class="hljs-number">1</span>,  labels.facing = <span class="hljs-string">&quot;reverse.clockwise&quot;</span>)
+}, bg.border = <span class="hljs-literal">NA</span>)
+</code></pre>
+<p><img src="../images/part11/cir2.svg" alt="cir2"></p>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x52A0;&#x4E0A;&#x4E00;&#x4E2A;&#x6BD4;&#x4F8B;&#x523B;&#x5EA6;&#x548C;&#x7EC4;&#x540D;</span>
+circos.par(start.degree = <span class="hljs-number">90</span>, clock.wise = <span class="hljs-literal">FALSE</span>)
+cdm_res = chordDiagram(rt_cir, col = colmat, grid.col = state_col, directional = <span class="hljs-literal">FALSE</span>, 
+                      annotationTrack = <span class="hljs-string">&quot;grid&quot;</span>, preAllocateTracks = list(track.height = <span class="hljs-number">0.5</span>))
+
+<span class="hljs-comment">###&#x4E3A;&#x5404;&#x4E2A;&#x7EC4;&#x522B;&#x523B;&#x5EA6;&#x6807;&#x7B7E;</span>
+<span class="hljs-keyword">for</span>(si <span class="hljs-keyword">in</span> get.all.sector.index()) {
+    circos.axis(h = <span class="hljs-string">&quot;top&quot;</span>, labels.cex = <span class="hljs-number">0.3</span>, sector.index = si, track.index = <span class="hljs-number">2</span>)
+}
+
+<span class="hljs-comment"># the second axis as well as the sector labels are added in this track</span>
+circos.track(track.index = <span class="hljs-number">1</span>, panel.fun = <span class="hljs-keyword">function</span>(x, y) {
+    xlim = get.cell.meta.data(<span class="hljs-string">&quot;xlim&quot;</span>)
+    ylim = get.cell.meta.data(<span class="hljs-string">&quot;ylim&quot;</span>)
+    sector.name = get.cell.meta.data(<span class="hljs-string">&quot;sector.index&quot;</span>)
+    xplot = get.cell.meta.data(<span class="hljs-string">&quot;xplot&quot;</span>)
+
+    circos.lines(xlim, c(mean(ylim), mean(ylim)), lty = <span class="hljs-number">3</span>) <span class="hljs-comment"># dotted line</span>
+    by = ifelse(abs(xplot[<span class="hljs-number">2</span>] - xplot[<span class="hljs-number">1</span>]) &gt; <span class="hljs-number">30</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.5</span>)
+    <span class="hljs-keyword">for</span>(p <span class="hljs-keyword">in</span> seq(by, <span class="hljs-number">1</span>, by = by)) {
+        circos.text(p*(xlim[<span class="hljs-number">2</span>] - xlim[<span class="hljs-number">1</span>]) + xlim[<span class="hljs-number">1</span>], mean(ylim) + <span class="hljs-number">0.1</span>, 
+            paste0(p*<span class="hljs-number">100</span>, <span class="hljs-string">&quot;%&quot;</span>), cex = <span class="hljs-number">0.3</span>, adj = c(<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>), niceFacing = <span class="hljs-literal">TRUE</span>)
+    }
+
+    circos.text(mean(xlim), <span class="hljs-number">1</span>, sector.name, niceFacing = <span class="hljs-literal">TRUE</span>, adj = c(<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>))
+}, bg.border = <span class="hljs-literal">NA</span>)
+circos.clear()
+</code></pre>
+<p><img src="../images/part11/cir3.svg" alt="cir3"></p>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x4E3A;&#x4F7F;&#x56FE;&#x7247;&#x770B;&#x8D77;&#x6765;&#x66F4;&#x52A0;&#x9971;&#x6EE1;&#xFF0C;&#x5916;&#x56F4;&#x518D;&#x91CD;&#x590D;&#x53E0;&#x52A0;&#x7EC4;&#x522B;&#x6BD4;&#x5217;&#x56FE;</span>
+circos.par(start.degree = <span class="hljs-number">90</span>, clock.wise = <span class="hljs-literal">FALSE</span>)
+cdm_res = chordDiagram(rt_cir, col = colmat, grid.col = state_col, directional = <span class="hljs-literal">FALSE</span>, 
+                      annotationTrack = <span class="hljs-string">&quot;grid&quot;</span>, preAllocateTracks = list(track.height = <span class="hljs-number">0.5</span>))
+
+
+<span class="hljs-keyword">for</span>(i <span class="hljs-keyword">in</span> seq_len(nrow(cdm_res))) { 
+  <span class="hljs-keyword">if</span>(cdm_res$value[i] &gt; <span class="hljs-number">0</span>) {
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>], -uy(<span class="hljs-number">3.5</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(<span class="hljs-number">2.5</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$cn[i]], border = state_col[cdm_res$cn[i]], sector.index = cdm_res$rn[i], track.index = <span class="hljs-number">2</span>)
+
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>], -uy(<span class="hljs-number">3.5</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(<span class="hljs-number">2.5</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$rn[i]], border = state_col[cdm_res$rn[i]], sector.index = cdm_res$cn[i], track.index = <span class="hljs-number">2</span>)
+
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>], -uy(-<span class="hljs-number">0.75</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(-<span class="hljs-number">0.85</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$cn[i]], border = state_col[cdm_res$cn[i]], sector.index = cdm_res$rn[i], track.index = <span class="hljs-number">1</span>)
+
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>], -uy(-<span class="hljs-number">0.75</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(-<span class="hljs-number">0.85</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$rn[i]], border = state_col[cdm_res$rn[i]], sector.index = cdm_res$cn[i], track.index = <span class="hljs-number">1</span>)
+
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>], -uy(-<span class="hljs-number">0.95</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x1&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(-<span class="hljs-number">1.15</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$rn[i]], border = state_col[cdm_res$rn[i]], sector.index = cdm_res$rn[i], track.index = <span class="hljs-number">1</span>)
+
+    circos.rect(cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>], -uy(-<span class="hljs-number">0.95</span>, <span class="hljs-string">&quot;mm&quot;</span>),
+                cdm_res[i, <span class="hljs-string">&quot;x2&quot;</span>] - abs(cdm_res[i, <span class="hljs-string">&quot;value&quot;</span>]), -uy(-<span class="hljs-number">1.15</span>, <span class="hljs-string">&quot;mm&quot;</span>), 
+                col = state_col[cdm_res$cn[i]], border = state_col[cdm_res$cn[i]], sector.index = cdm_res$cn[i], track.index = <span class="hljs-number">1</span>)
+
+
+  }
+}
+
+circos.track(track.index = <span class="hljs-number">2</span>, panel.fun = <span class="hljs-keyword">function</span>(x, y) {
+  sector.index = get.cell.meta.data(<span class="hljs-string">&quot;sector.index&quot;</span>)
+  xlim = get.cell.meta.data(<span class="hljs-string">&quot;xlim&quot;</span>)
+  ylim = get.cell.meta.data(<span class="hljs-string">&quot;ylim&quot;</span>)
+  xlim = CELL_META$xlim
+  breaks = seq(<span class="hljs-number">0</span>, xlim[<span class="hljs-number">2</span>], by = <span class="hljs-number">5e4</span>)
+  circos.axis(major.at = breaks, labels = paste0(breaks/<span class="hljs-number">2000</span>, <span class="hljs-string">&quot;KB&quot;</span>), labels.cex = <span class="hljs-number">0.5</span>, minor.ticks = <span class="hljs-number">1</span>,  labels.facing = <span class="hljs-string">&quot;reverse.clockwise&quot;</span>)
+}, bg.border = <span class="hljs-literal">NA</span>)
+
+
+circos.track(track.index = <span class="hljs-number">1</span>, panel.fun = <span class="hljs-keyword">function</span>(x, y) {
+  sector.index = get.cell.meta.data(<span class="hljs-string">&quot;sector.index&quot;</span>)
+  xlim = get.cell.meta.data(<span class="hljs-string">&quot;xlim&quot;</span>)
+  ylim = get.cell.meta.data(<span class="hljs-string">&quot;ylim&quot;</span>)
+  circos.text(mean(xlim), <span class="hljs-number">0.82</span>, sector.index, cex = <span class="hljs-number">0.7</span>, facing = <span class="hljs-string">&quot;reverse.clockwise&quot;</span>, niceFacing = <span class="hljs-literal">TRUE</span>)
+  xlim = CELL_META$xlim
+
+  sector.name = get.cell.meta.data(<span class="hljs-string">&quot;sector.index&quot;</span>) 
+  xplot = get.cell.meta.data(<span class="hljs-string">&quot;xplot&quot;</span>)
+
+  circos.lines(xlim, c(mean(ylim)/<span class="hljs-number">2.04</span>, mean(ylim)/<span class="hljs-number">2.04</span>), lty = <span class="hljs-number">3</span>) <span class="hljs-comment"># dotted line </span>
+  by = ifelse(abs(xplot[<span class="hljs-number">2</span>] - xplot[<span class="hljs-number">1</span>]) &gt; <span class="hljs-number">30</span>, <span class="hljs-number">0.2</span>, <span class="hljs-number">0.5</span>)
+  <span class="hljs-keyword">for</span>(p <span class="hljs-keyword">in</span> seq(by, <span class="hljs-number">1</span>, by = by)) {
+    circos.text(p*(xlim[<span class="hljs-number">2</span>] - xlim[<span class="hljs-number">1</span>]) + xlim[<span class="hljs-number">1</span>], mean(ylim)/<span class="hljs-number">2.5</span>, 
+                paste0(p*<span class="hljs-number">100</span>, <span class="hljs-string">&quot;%&quot;</span>), cex = <span class="hljs-number">0.4</span>, adj = c(<span class="hljs-number">0.5</span>, <span class="hljs-number">0</span>), niceFacing = <span class="hljs-literal">TRUE</span>, facing = <span class="hljs-string">&quot;reverse.clockwise&quot;</span>)
+  }
+}, bg.border = <span class="hljs-literal">NA</span>)
+
+
+circos.clear()
+</code></pre>
+<p><img src="../images/part11/cir4.svg" alt="cir4"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="../part10/GO.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 10.2 GO分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"11.1 基本的circular plot","level":"11.1","depth":1,"previous":{"title":"10.2 GO分析","level":"10.2","depth":1,"path":"part10/GO.md","ref":"part10/GO.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part11/basic.md","mtime":"2018-12-21T02:56:26.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T02:54:33.056Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

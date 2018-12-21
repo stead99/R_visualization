@@ -44,6 +44,5 @@
 * [10.2 GO分析](part10/GO.md)
 
 ### 11.circular plot
-* [11.1 基本的circular plot](part11/circular plot.md)
-* [11.2 图形参数调整](part11/parameter.md)
+* [11.1 基本的circular plot](part11/basic.md)
 
