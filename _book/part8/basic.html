@@ -507,7 +507,36 @@
                                 
                                 <h3 id="roc&#x66F2;&#x7EBF;">ROC&#x66F2;&#x7EBF;</h3>
 <h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
-<p>&#x8BC4;&#x4F30;&#x67D0;&#x4E2A;&#x6307;&#x6807;&#x9884;&#x6D4B;&#x67D0;&#x9879;&#x65F6;&#x95F4;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x8BCA;&#x65AD;&#x7684;&#x7279;&#x5F02;&#x6027;&#x548C;&#x7075;&#x654F;&#x6027;</p>
+<p>&#x8BC4;&#x4F30;&#x67D0;&#x4E2A;&#x6307;&#x6807;&#x9884;&#x6D4B;&#x67D0;&#x9879;&#x4E8B;&#x4EF6;&#x7684;&#x6027;&#x80FD;&#xFF0C;&#x8BCA;&#x65AD;&#x7684;&#x7279;&#x5F02;&#x6027;&#x548C;&#x7075;&#x654F;&#x6027;&#xFF0C;&#x6BD4;&#x5982;&#x4EE5;&#x57FA;&#x56E0;&#x7684;&#x8868;&#x8FBE;&#x9884;&#x6D4B;tumor&#x548C;normal&#x7684;&#x7279;&#x5F02;&#x6027;&#x548C;&#x7075;&#x654F;&#x6027;</p>
+<blockquote>
+<p>&#x4F7F;&#x7528;&#x6570;&#x636E;&#x683C;&#x5F0F;&#x5982;&#x4E0B;&#x56FE;</p>
+</blockquote>
+<p><img src="../images/part8/data_format1.png" alt="data format"></p>
+<pre><code class="lang-R">load(<span class="hljs-string">&apos;./roc_test.Rdata&apos;</span>) <span class="hljs-comment">#rt</span>
+<span class="hljs-comment">###&#x8BA1;&#x7B97;&#x7ED9;&#x4E88;TP53&#x8868;&#x8FBE;&#x5224;&#x65AD;tumor&#x548C;normal&#x7684;&#x7279;&#x5F02;&#x6027;&#x548C;&#x7075;&#x654F;&#x6027;</span>
+roc_pt &lt;- roc(rt_roc$group, rt_roc$TP53)
+AUC_val &lt;- round(as.numeric(roc_pt$auc), digits = <span class="hljs-number">3</span>)<span class="hljs-comment">#&#x83B7;&#x53D6;AUC&#x7684;&#x503C;</span>
+
+mat_roc &lt;- data.frame(cbind(roc_pt$specificities, roc_pt$sensitivities), stringsAsFactors = <span class="hljs-literal">FALSE</span>)
+colnames(mat_roc) &lt;- c(<span class="hljs-string">&apos;specificities&apos;</span>, <span class="hljs-string">&apos;sensitivities&apos;</span>)
+</code></pre>
+<blockquote>
+<p>&#x4F5C;&#x56FE;</p>
+</blockquote>
+<pre><code class="lang-R">ggplot(mat_roc, aes(<span class="hljs-number">1</span>- specificities, sensitivities)) + geom_point() + 
+geom_abline(linetype=<span class="hljs-string">&quot;dashed&quot;</span>, color = <span class="hljs-string">&quot;grey&quot;</span>) + 
+annotate(geom=<span class="hljs-string">&quot;text&quot;</span>, x = <span class="hljs-number">0.75</span>, y = <span class="hljs-number">0.25</span>, label = paste (<span class="hljs-string">&apos;AUC = &apos;</span> , AUC_val, sep = <span class="hljs-string">&quot;&quot;</span> )) + 
+theme_bw()
+
+<span class="hljs-comment">#&#x5C06;&#x70B9;&#x6362;&#x6210;&#x7EBF;</span>
+<span class="hljs-comment">#geom_line()&#x505A;&#x5207;&#x6362;</span>
+ggplot(mat_roc, aes(<span class="hljs-number">1</span>- specificities, sensitivities)) + 
+geom_line(size = <span class="hljs-number">1.5</span>, colour = <span class="hljs-string">&apos;blue&apos;</span>) + 
+geom_abline(linetype=<span class="hljs-string">&quot;dashed&quot;</span>, color = <span class="hljs-string">&quot;grey&quot;</span>) + 
+annotate(geom=<span class="hljs-string">&quot;text&quot;</span>, x = <span class="hljs-number">0.75</span>, y = <span class="hljs-number">0.25</span>, label = paste (<span class="hljs-string">&apos;AUC = &apos;</span> , AUC_val, sep = <span class="hljs-string">&quot;&quot;</span> )) + 
+theme_bw()
+</code></pre>
+<p><img src="../images/part8/ROC1.svg" alt="ROC1"><img src="../images/part8/ROC2.svg" alt="ROC2"></p>
 
                                 
                                 </section>
@@ -551,7 +580,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"8.1 基本的ROC曲线","level":"8.1","depth":1,"next":{"title":"9.1 基本的生存分析","level":"9.1","depth":1,"path":"part9/basic.md","ref":"part9/basic.md","articles":[]},"previous":{"title":"7.2 3D PCA","level":"7.2","depth":1,"path":"part7/3D_PCA.md","ref":"part7/3D_PCA.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part8/basic.md","mtime":"2018-12-20T08:33:57.176Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T02:54:33.056Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"8.1 基本的ROC曲线","level":"8.1","depth":1,"next":{"title":"9.1 基本的生存分析","level":"9.1","depth":1,"path":"part9/basic.md","ref":"part9/basic.md","articles":[]},"previous":{"title":"7.2 3D PCA","level":"7.2","depth":1,"path":"part7/3D_PCA.md","ref":"part7/3D_PCA.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part8/basic.md","mtime":"2018-12-21T05:51:03.515Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T02:54:33.056Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
