@@ -512,10 +512,12 @@
 <blockquote>
 <p>&#x6240;&#x7528;&#x6570;&#x636E;&#x548C;KEGG&#x4E00;&#x6837;</p>
 </blockquote>
-<pre><code class="lang-R">rt_FC_P &lt;- read.table(file = <span class="hljs-string">&apos;./P_FC.txt&apos;</span>, header = <span class="hljs-literal">TRUE</span>, 
-                       row.names = <span class="hljs-number">1</span>, stringsAsFactors = <span class="hljs-literal">FALSE</span>)
+<pre><code class="lang-R">load(<span class="hljs-string">&apos;./FC_P.Rdata&apos;</span>)<span class="hljs-comment">#rt_FC_P</span>
 
 <span class="hljs-comment">#&#x51C6;&#x5907;KEGG&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">library</span>(clusterProfiler)
+<span class="hljs-keyword">library</span>(pathview)
+
 eg = bitr(row.names(rt_FC_P), fromType=<span class="hljs-string">&quot;SYMBOL&quot;</span>, toType=<span class="hljs-string">&quot;ENTREZID&quot;</span>, OrgDb=<span class="hljs-string">&quot;org.Hs.eg.db&quot;</span>)
 gene_list &lt;- rt_FC_P$logFC[match(eg$SYMBOL, row.names(rt_FC_P), nomatch = <span class="hljs-number">0</span>)]
 names(gene_list) &lt;- eg$ENTREZID
@@ -591,7 +593,7 @@ cnetplot(ego, categorySize = <span class="hljs-string">&quot;pvalue&quot;</span>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10.2 GO分析","level":"10.2","depth":1,"next":{"title":"11.1 基本的circular plot","level":"11.1","depth":1,"path":"part11/basic.md","ref":"part11/basic.md","articles":[]},"previous":{"title":"10.1 KEGG分析","level":"10.1","depth":1,"path":"part10/KEGG.md","ref":"part10/KEGG.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part10/GO.md","mtime":"2018-12-21T06:09:20.193Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-21T02:54:33.056Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10.2 GO分析","level":"10.2","depth":1,"next":{"title":"11.1 基本的circular plot","level":"11.1","depth":1,"path":"part11/basic.md","ref":"part11/basic.md","articles":[]},"previous":{"title":"10.1 KEGG分析","level":"10.1","depth":1,"path":"part10/KEGG.md","ref":"part10/KEGG.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part10/GO.md","mtime":"2018-12-23T01:25:35.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T08:52:12.732Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
