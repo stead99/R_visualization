@@ -7,10 +7,12 @@
 >所用数据和KEGG一样
 
 ```R
-rt_FC_P <- read.table(file = './P_FC.txt', header = TRUE, 
-                       row.names = 1, stringsAsFactors = FALSE)
+load('./FC_P.Rdata')#rt_FC_P
 
 #准备KEGG需要的数据
+library(clusterProfiler)
+library(pathview)
+
 eg = bitr(row.names(rt_FC_P), fromType="SYMBOL", toType="ENTREZID", OrgDb="org.Hs.eg.db")
 gene_list <- rt_FC_P$logFC[match(eg$SYMBOL, row.names(rt_FC_P), nomatch = 0)]
 names(gene_list) <- eg$ENTREZID

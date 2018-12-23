@@ -19,6 +19,9 @@ colnames(mat_roc) <- c('specificities', 'sensitivities')
 >作图
 
 ```R
+library(ggplot2)
+library(pROC)
+
 ggplot(mat_roc, aes(1- specificities, sensitivities)) + geom_point() + 
 geom_abline(linetype="dashed", color = "grey") + 
 annotate(geom="text", x = 0.75, y = 0.25, label = paste ('AUC = ' , AUC_val, sep = "" )) + 

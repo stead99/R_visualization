@@ -5,7 +5,7 @@
 >所使用的数据依然是上一章节heatmap所用的数据
 
 ```R
-rt <- read.table(file = "./LUAD_test.txt", header = TRUE, row.names = 1, stringsAsFactors = FALSE)
+load('./test_exp.Rdata') #rt
 ```
 
 >准备PCA所需数据

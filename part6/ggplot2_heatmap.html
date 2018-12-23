@@ -1,0 +1,664 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>6.2 ggplot2 heatmap · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="correlation_heatmap.html" />
+    
+    
+    <link rel="prev" href="basic.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1.前言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/Introduction.html">
+            
+                <a href="../part1/Introduction.html">
+            
+                    
+                    1.1 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part1/purpose.html">
+            
+                <a href="../part1/purpose.html">
+            
+                    
+                    1.2 制作该教程的目的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../part1/basic_knowledge.html">
+            
+                <a href="../part1/basic_knowledge.html">
+            
+                    
+                    1.3 学习该教程需要掌握的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part1/scope_of_application.html">
+            
+                <a href="../part1/scope_of_application.html">
+            
+                    
+                    1.4 该教程适用人群
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.散点图(scatter plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../part2/basic.html">
+            
+                <a href="../part2/basic.html">
+            
+                    
+                    2.1 基本的散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../part2/3D_scatter.html">
+            
+                <a href="../part2/3D_scatter.html">
+            
+                    
+                    2.2 3D散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.线图(line plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../part3/basic.html">
+            
+                <a href="../part3/basic.html">
+            
+                    
+                    3.1 基本的线图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.箱型图(boxplot)</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../part4/basic.html">
+            
+                <a href="../part4/basic.html">
+            
+                    
+                    4.1 基本的箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../part4/parameter.html">
+            
+                <a href="../part4/parameter.html">
+            
+                    
+                    4.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../part4/more_group.html">
+            
+                <a href="../part4/more_group.html">
+            
+                    
+                    4.3 多分组箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../part4/violin.html">
+            
+                <a href="../part4/violin.html">
+            
+                    
+                    4.4 小提琴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5.密度图(density plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../part5/basic.html">
+            
+                <a href="../part5/basic.html">
+            
+                    
+                    5.1 基本的密度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6.热图(Heatmap)</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="basic.html">
+            
+                <a href="basic.html">
+            
+                    
+                    6.1 基本的热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="6.2" data-path="ggplot2_heatmap.html">
+            
+                <a href="ggplot2_heatmap.html">
+            
+                    
+                    6.2 ggplot2 heatmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="correlation_heatmap.html">
+            
+                <a href="correlation_heatmap.html">
+            
+                    
+                    6.3 相关性热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">7.主成分分析(PCA)</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../part7/2D_PCA.html">
+            
+                <a href="../part7/2D_PCA.html">
+            
+                    
+                    7.1 2D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../part7/3D_PCA.html">
+            
+                <a href="../part7/3D_PCA.html">
+            
+                    
+                    7.2 3D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">8. ROC曲线</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../part8/basic.html">
+            
+                <a href="../part8/basic.html">
+            
+                    
+                    8.1 基本的ROC曲线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">9.生存分析(KM plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../part9/basic.html">
+            
+                <a href="../part9/basic.html">
+            
+                    
+                    9.1 基本的生存分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">10.KEGG和GO分析</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="../part10/KEGG.html">
+            
+                <a href="../part10/KEGG.html">
+            
+                    
+                    10.1 KEGG分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="10.2" data-path="../part10/GO.html">
+            
+                <a href="../part10/GO.html">
+            
+                    
+                    10.2 GO分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">11.circular plot</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../part11/basic.html">
+            
+                <a href="../part11/basic.html">
+            
+                    
+                    11.1 基本的circular plot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >6.2 ggplot2 heatmap</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="ggplot2-heatmap">ggplot2 heatmap</h3>
+<blockquote>
+<p>&#x6570;&#x636E;&#x4F9D;&#x7136;&#x6765;&#x81EA;&#x4E8E;&#x4E0A;&#x4E00;&#x8282;&#x7684;&#x6570;&#x636E;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(<span class="hljs-string">&quot;reshape2&quot;</span>)
+<span class="hljs-keyword">library</span>(<span class="hljs-string">&quot;ggplot2&quot;</span>)
+
+<span class="hljs-comment">#&#x51C6;&#x5907;ggplt2&#x6240;&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;&#x683C;&#x5F0F;</span>
+mat_ht_gg &lt;- melt(t(mat_ht_z))
+
+<span class="hljs-comment">#&#x4F5C;&#x56FE;</span>
+HT1 &lt;- ggplot(data = mat_ht_gg, aes(x = Var1, y = Var2)) + 
+       geom_tile(aes(fill = value))
+print(HT1)
+
+<span class="hljs-comment">#&#x53EF;&#x4EE5;&#x6362;&#x4E00;&#x79CD;&#x989C;&#x8272;</span>
+HT2 &lt;- HT1 + scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>)
+print(HT2)
+</code></pre>
+<p><img src="../images/part6/heatmap6.svg" alt="scatter plot">
+<img src="../images/part6/heatmap7.svg" alt="scatter plot"></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x83B7;&#x5F97;&#x805A;&#x7C7B;&#x7684;&#x56FE;&#xFF0C;&#x9700;&#x8981;&#x63D0;&#x524D;&#x5BF9;&#x8F93;&#x5165;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x805A;&#x7C7B;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-comment">#do cluster</span>
+<span class="hljs-keyword">library</span>(ggplot2)
+<span class="hljs-keyword">library</span>(ggcorrplot)
+<span class="hljs-keyword">library</span>(ggdendro)
+
+<span class="hljs-comment">#col cluster</span>
+mat_dendro_col &lt;- as.dendrogram(hclust(d = dist(x = t(mat_ht_z))))
+mat_dendro_ord_col &lt;- order.dendrogram(mat_dendro_col)
+<span class="hljs-comment">#row cluster</span>
+mat_dendro_row &lt;- as.dendrogram(hclust(d = dist(x = mat_ht_z)))
+mat_dendro_ord_row &lt;- order.dendrogram(mat_dendro_row)
+
+<span class="hljs-comment">#Re-order heatmap columns to match dendrogram</span>
+mat_ht_gg_clu &lt;- mat_ht_z[mat_dendro_ord_row, mat_dendro_ord_col]
+mat_ht_clu &lt;- melt(t(mat_ht_gg_clu))
+
+HT3 &lt;- ggplot(data = mat_ht_clu, aes(x = Var1, y = Var2)) + 
+       geom_tile(aes(fill = value)) +  
+        scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>)
+print(HT3)
+</code></pre>
+<p><img src="../images/part6/heatmap8.svg" alt="scatter plot"></p>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x52A0;&#x4E0A;&#x805A;&#x7C7B;&#x7684;&#x7EBF;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;ggdendrogram&#x53E0;&#x52A0;&#x4E0A;&#x53BB;</p>
+</blockquote>
+<pre><code class="lang-R"><span class="hljs-keyword">library</span>(grid)
+dendro_plot_col &lt;- ggdendrogram(data = mat_dendro_col, rotate = <span class="hljs-literal">FALSE</span>) +
+                   theme(axis.text.x = element_text(size = <span class="hljs-number">2</span>))
+
+dendro_plot_row &lt;- ggdendrogram(data = mat_dendro_row, rotate = <span class="hljs-literal">TRUE</span>) +
+                   theme(axis.text.y = element_text(size = <span class="hljs-number">2</span>))
+
+HT4 &lt;- ggplot(data = mat_ht_clu, aes(x = Var1, y = Var2)) +
+       geom_tile(aes(fill = value)) +
+       scale_fill_gradient2(low = <span class="hljs-string">&quot;blue&quot;</span>, high = <span class="hljs-string">&quot;red&quot;</span>) +
+       theme(axis.text.y = element_blank(),
+             axis.title.y = element_blank(),
+             axis.ticks.y = element_blank(),
+             axis.text.x = element_blank(),
+             axis.title.x = element_blank(),
+             axis.ticks.x = element_blank(),
+             legend.position = <span class="hljs-string">&quot;bottom&quot;</span>)
+
+grid.newpage()
+print(HT4, vp=viewport(<span class="hljs-number">0.6</span>, <span class="hljs-number">0.8</span>, x = <span class="hljs-number">0.5</span>, y = <span class="hljs-number">0.3</span>)) <span class="hljs-comment">#x change x positiion, y change y position,</span>
+print(dendro_plot_col, vp=viewport(<span class="hljs-number">0.66</span>, <span class="hljs-number">0.2</span>, x = <span class="hljs-number">0.495</span>, y = <span class="hljs-number">0.78</span>)) <span class="hljs-comment"># 0.875change cluster plot wide</span>
+print(dendro_plot_row, vp=viewport(<span class="hljs-number">0.2</span>, <span class="hljs-number">0.77</span>, x = <span class="hljs-number">0.9</span>, y = <span class="hljs-number">0.335</span>)) <span class="hljs-comment"># 0.65change cluster plot wide</span>
+</code></pre>
+<p><img src="../images/part6/heatmap9.svg" alt="scatter plot"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="basic.html" class="navigation navigation-prev " aria-label="Previous page: 6.1 基本的热图">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="correlation_heatmap.html" class="navigation navigation-next " aria-label="Next page: 6.3 相关性热图">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"6.2 ggplot2 heatmap","level":"6.2","depth":1,"next":{"title":"6.3 相关性热图","level":"6.3","depth":1,"path":"part6/correlation_heatmap.md","ref":"part6/correlation_heatmap.md","articles":[]},"previous":{"title":"6.1 基本的热图","level":"6.1","depth":1,"path":"part6/basic.md","ref":"part6/basic.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part6/ggplot2_heatmap.md","mtime":"2018-12-20T04:20:14.182Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T08:52:12.732Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+

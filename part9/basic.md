@@ -8,8 +8,7 @@
 
 ```R
 #读取数据，构建生存分析所需数据结构
-rt_cli <- read.table('./LUAD_cli_exp.txt', header = TRUE, row.names = 1, 
-                     sep = '\t', stringsAsFactors = FALSE)
+load('./cli_test.Rdata')#rt_cli
 
 #按照基因的表达值中位数分成高低表达组
 rt_cli$gp[rt_cli[, 'EGFR'] < median(rt_cli[, 'EGFR'])] <- 'low_exp'

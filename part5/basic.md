@@ -7,8 +7,7 @@
 ####利用ggplot2创建density plot
 
 ```R
-rt_cli <- read.table(file = "/Users/stead/Documents/SourceTree/gitbook/R_visualization/data/LUAD_cli_exp.txt", 
-                     header = TRUE,  row.names = 1, stringsAsFactors = FALSE)
+load("./cli_test.Rdata")
 #rt_cli数据形式如上图
 
 library(ggplot2)

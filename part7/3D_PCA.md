@@ -29,6 +29,7 @@ zlab <- paste("PC3(", pro3, "%)", sep = "")
 >利用scatter3D作图
 
 ```R
+library(plot3D)
 #基本展示
 scatter3D(x = pc$PC1, y = pc$PC2, z = pc$PC3,  
           xlab = xlab, ylab = ylab, zlab = zlab, colkey = FALSE)

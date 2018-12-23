@@ -5,8 +5,7 @@ heatmap运用的地方比较多，能够展示的信息也非常丰富，常用�
 ####利用limma包做一个差异表达分析
 
 ```R
-rt <- read.table(file = "/Users/stead/Documents/SourceTree/gitbook/R_visualization/data/LUAD_test.txt", 
-                 header = TRUE, row.names = 1, stringsAsFactors = FALSE)
+load("./test_exp.Rdata")
 
 #heatmap 在差异表达基因可以显示的更有层次，那这里我们简单的做一个差异分析，用heatmap展示差异表达基因
 library(limma)

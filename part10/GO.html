@@ -1,0 +1,636 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>10.2 GO分析 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="../part11/basic.html" />
+    
+    
+    <link rel="prev" href="KEGG.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        <li class="header">1.前言</li>
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../part1/Introduction.html">
+            
+                <a href="../part1/Introduction.html">
+            
+                    
+                    1.1 简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../part1/purpose.html">
+            
+                <a href="../part1/purpose.html">
+            
+                    
+                    1.2 制作该教程的目的
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../part1/basic_knowledge.html">
+            
+                <a href="../part1/basic_knowledge.html">
+            
+                    
+                    1.3 学习该教程需要掌握的基础知识
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../part1/scope_of_application.html">
+            
+                <a href="../part1/scope_of_application.html">
+            
+                    
+                    1.4 该教程适用人群
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">2.散点图(scatter plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../part2/basic.html">
+            
+                <a href="../part2/basic.html">
+            
+                    
+                    2.1 基本的散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../part2/3D_scatter.html">
+            
+                <a href="../part2/3D_scatter.html">
+            
+                    
+                    2.2 3D散点图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">3.线图(line plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../part3/basic.html">
+            
+                <a href="../part3/basic.html">
+            
+                    
+                    3.1 基本的线图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">4.箱型图(boxplot)</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="../part4/basic.html">
+            
+                <a href="../part4/basic.html">
+            
+                    
+                    4.1 基本的箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="../part4/parameter.html">
+            
+                <a href="../part4/parameter.html">
+            
+                    
+                    4.2 图形参数调整
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.3" data-path="../part4/more_group.html">
+            
+                <a href="../part4/more_group.html">
+            
+                    
+                    4.3 多分组箱型图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="../part4/violin.html">
+            
+                <a href="../part4/violin.html">
+            
+                    
+                    4.4 小提琴图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">5.密度图(density plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../part5/basic.html">
+            
+                <a href="../part5/basic.html">
+            
+                    
+                    5.1 基本的密度图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">6.热图(Heatmap)</li>
+        
+        
+    
+        <li class="chapter " data-level="6.1" data-path="../part6/basic.html">
+            
+                <a href="../part6/basic.html">
+            
+                    
+                    6.1 基本的热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.2" data-path="../part6/ggplot2_heatmap.html">
+            
+                <a href="../part6/ggplot2_heatmap.html">
+            
+                    
+                    6.2 ggplot2 heatmap
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="6.3" data-path="../part6/correlation_heatmap.html">
+            
+                <a href="../part6/correlation_heatmap.html">
+            
+                    
+                    6.3 相关性热图
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">7.主成分分析(PCA)</li>
+        
+        
+    
+        <li class="chapter " data-level="7.1" data-path="../part7/2D_PCA.html">
+            
+                <a href="../part7/2D_PCA.html">
+            
+                    
+                    7.1 2D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="7.2" data-path="../part7/3D_PCA.html">
+            
+                <a href="../part7/3D_PCA.html">
+            
+                    
+                    7.2 3D PCA
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">8. ROC曲线</li>
+        
+        
+    
+        <li class="chapter " data-level="8.1" data-path="../part8/basic.html">
+            
+                <a href="../part8/basic.html">
+            
+                    
+                    8.1 基本的ROC曲线
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">9.生存分析(KM plot)</li>
+        
+        
+    
+        <li class="chapter " data-level="9.1" data-path="../part9/basic.html">
+            
+                <a href="../part9/basic.html">
+            
+                    
+                    9.1 基本的生存分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">10.KEGG和GO分析</li>
+        
+        
+    
+        <li class="chapter " data-level="10.1" data-path="KEGG.html">
+            
+                <a href="KEGG.html">
+            
+                    
+                    10.1 KEGG分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="10.2" data-path="GO.html">
+            
+                <a href="GO.html">
+            
+                    
+                    10.2 GO分析
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">11.circular plot</li>
+        
+        
+    
+        <li class="chapter " data-level="11.1" data-path="../part11/basic.html">
+            
+                <a href="../part11/basic.html">
+            
+                    
+                    11.1 基本的circular plot
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >10.2 GO分析</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h3 id="go&#x5206;&#x6790;">GO&#x5206;&#x6790;</h3>
+<h4 id="&#x5E94;&#x7528;&#x573A;&#x666F;">&#x5E94;&#x7528;&#x573A;&#x666F;</h4>
+<p>&#x529F;&#x80FD;&#x5BCC;&#x96C6;&#x5C31;&#x662F;GO&#x5206;&#x6790;&#x5E38;&#x89C4;&#x7684;&#x5E94;&#x7528;</p>
+<p><img src="../images/part10/data_format1.png" alt="data format"></p>
+<blockquote>
+<p>&#x6240;&#x7528;&#x6570;&#x636E;&#x548C;KEGG&#x4E00;&#x6837;</p>
+</blockquote>
+<pre><code class="lang-R">load(<span class="hljs-string">&apos;./FC_P.Rdata&apos;</span>)<span class="hljs-comment">#rt_FC_P</span>
+
+<span class="hljs-comment">#&#x51C6;&#x5907;KEGG&#x9700;&#x8981;&#x7684;&#x6570;&#x636E;</span>
+<span class="hljs-keyword">library</span>(clusterProfiler)
+<span class="hljs-keyword">library</span>(pathview)
+
+eg = bitr(row.names(rt_FC_P), fromType=<span class="hljs-string">&quot;SYMBOL&quot;</span>, toType=<span class="hljs-string">&quot;ENTREZID&quot;</span>, OrgDb=<span class="hljs-string">&quot;org.Hs.eg.db&quot;</span>)
+gene_list &lt;- rt_FC_P$logFC[match(eg$SYMBOL, row.names(rt_FC_P), nomatch = <span class="hljs-number">0</span>)]
+names(gene_list) &lt;- eg$ENTREZID
+gene_list &lt;- gene_list[order(gene_list, decreasing = <span class="hljs-literal">TRUE</span>)]
+gene &lt;- names(gene_list)[abs(gene_list) &gt; <span class="hljs-number">1</span>]
+</code></pre>
+<pre><code class="lang-R"><span class="hljs-comment">#&#x8BA1;&#x7B97;gene&#x548C;gene list&#x6240;&#x5BCC;&#x96C6;&#x7684;&#x751F;&#x7269;&#x5B66;&#x529F;&#x80FD;</span>
+<span class="hljs-comment">#GO analysis</span>
+ggo &lt;- groupGO(gene = gene, OrgDb = org.Hs.eg.db, ont = <span class="hljs-string">&quot;CC&quot;</span>,
+               level = <span class="hljs-number">3</span>, readable = <span class="hljs-literal">TRUE</span>)
+
+ego &lt;- enrichGO(gene = gene, universe = names(gene_list), OrgDb = org.Hs.eg.db, 
+                ont = <span class="hljs-string">&quot;CC&quot;</span>, pAdjustMethod = <span class="hljs-string">&quot;BH&quot;</span>, pvalueCutoff = <span class="hljs-number">0.1</span>,
+                qvalueCutoff = <span class="hljs-number">0.05</span>, readable = <span class="hljs-literal">TRUE</span>)
+
+
+<span class="hljs-comment">#barplot&#x5C55;&#x793A;&#x529F;&#x80FD;&#x5BCC;&#x96C6;&#x7684;&#x57FA;&#x56E0;&#x6570;&#x91CF;&#x548C;pvalue</span>
+barplot(ego, showCategory=<span class="hljs-number">8</span>)
+
+<span class="hljs-comment">#dotplot&#x5C55;&#x793A;&#x529F;&#x80FD;&#x5BCC;&#x96C6;&#x7684;&#x57FA;&#x56E0;&#x6570;&#x91CF;&#x548C;pvalue</span>
+dotplot(ego)
+
+<span class="hljs-comment">#&#x4EE5;&#x7F51;&#x7EDC;&#x5C55;&#x793A;&#x5BCC;&#x96C6;&#x751F;&#x7269;&#x5B66;&#x529F;&#x80FD;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;</span>
+emapplot(ego)
+
+<span class="hljs-comment">#&#x4EE5;&#x7F51;&#x7EDC;&#x5C55;&#x793A;&#x4E3B;&#x8981;&#x7684;&#x751F;&#x7269;&#x5B66;&#x529F;&#x80FD;&#x57FA;&#x56E0;&#xFF0C;&#x4EE5;&#x53CA;&#x8BE5;&#x57FA;&#x56E0;&#x7684;&#x8868;&#x8FBE;&#x53D8;&#x5316;</span>
+cnetplot(ego, categorySize = <span class="hljs-string">&quot;pvalue&quot;</span>, foldChange = gene_list)
+</code></pre>
+<p><img src="../images/part10/GO1.svg" alt="GO1">
+<img src="../images/part10/GO2.svg" alt="GO2">
+<img src="../images/part10/GO3.svg" alt="GO3">
+<img src="../images/part10/GO4.svg" alt="GO4"></p>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="KEGG.html" class="navigation navigation-prev " aria-label="Previous page: 10.1 KEGG分析">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../part11/basic.html" class="navigation navigation-next " aria-label="Next page: 11.1 基本的circular plot">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"10.2 GO分析","level":"10.2","depth":1,"next":{"title":"11.1 基本的circular plot","level":"11.1","depth":1,"path":"part11/basic.md","ref":"part11/basic.md","articles":[]},"previous":{"title":"10.1 KEGG分析","level":"10.1","depth":1,"path":"part10/KEGG.md","ref":"part10/KEGG.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":["livereload"],"pluginsConfig":{"livereload":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"part10/GO.md","mtime":"2018-12-23T01:25:35.725Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-12-22T08:52:12.732Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
