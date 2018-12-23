@@ -7,8 +7,7 @@
 >rt_FC_P数据结构如上图
 
 ```R
-rt_FC_P <- read.table(file = './P_FC.txt', header = TRUE, 
-                       row.names = 1, stringsAsFactors = FALSE)
+load("./FC_P.Rdata")
 
 #准备KEGG需要的数据
 eg = bitr(row.names(rt_FC_P), fromType="SYMBOL", toType="ENTREZID", OrgDb="org.Hs.eg.db")

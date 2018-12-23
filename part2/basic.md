@@ -7,6 +7,7 @@ eg: 直观展示两个基因表达相关性
 
 ```R
 #rt即上图展示数据
+load('./test_exp.Rdata')#rt
 x <- as.numeric(rt['MT-TF', ])
 y <- as.numeric(rt['MT-TV', ])
 plot(x, y, main = "Main title",

@@ -1,14 +1,13 @@
-###基本散点图展示
+###密度分布图
 ####应用场景
 可以展示数据分布特征，比如说：我们可以看看数据样本中患者年龄分布情况，也可以分组看看不同组别患者年龄分布趋势。
 
-![scatter plot](/images/part3/data_format_cli.png)
+![data_format](/images/part3/data_format_cli.png)
 
 ####利用ggplot2创建density plot
 
 ```R
-rt_cli <- read.table(file = "/Users/stead/Documents/SourceTree/gitbook/R_visualization/data/LUAD_cli_exp.txt", 
-                     header = TRUE,  row.names = 1, stringsAsFactors = FALSE)
+load("./cli_test.Rdata")
 #rt_cli数据形式如上图
 
 library(ggplot2)
